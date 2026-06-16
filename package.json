@@ -1,0 +1,44 @@
+{
+  "name": "demo_library_playwright",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "bddgen": "bddgen",
+    "test": "bddgen && playwright test --project=chromium",
+    "test:ui": "bddgen && playwright test --ui",
+    "test:debug": "bddgen && playwright test --debug",
+    "lint": "eslint . --max-warnings=0",
+    "lint:fix": "eslint . --fix",
+    "format": "prettier --write .",
+    "ci:install": "npm ci",
+    "ci:playwright-install": "npx playwright install --with-deps",
+    "ci:lint": "npm run lint",
+    "ci:test": "npm run test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MontielFernando234/demo_library_playwright.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/MontielFernando234/demo_library_playwright/issues"
+  },
+  "homepage": "https://github.com/MontielFernando234/demo_library_playwright#readme",
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "@playwright/test": "^1.59.1",
+    "@types/node": "^25.6.0",
+    "eslint": "^10.3.0",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-playwright": "^2.10.2",
+    "globals": "^17.6.0",
+    "playwright-bdd": "^8.5.1",
+    "prettier": "^3.8.3",
+    "typescript": "^6.0.3",
+    "typescript-eslint": "^8.59.3"
+  }
+}

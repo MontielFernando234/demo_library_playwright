@@ -1,0 +1,81 @@
+# CI acotado en pushes a ramas feature/* según archivos tocados (ADR-004).
+name: CI feature branch (scoped)
+
+on:
+  push:
+    branches: ['feature/**']
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  changes:
+    runs-on: ubuntu-latest
+    outputs:
+      deps: ${{ steps.filter.outputs.deps }}
+      automation: ${{ steps.filter.outputs.automation }}
+      tooling: ${{ steps.filter.outputs.tooling }}
+      workflows: ${{ steps.filter.outputs.workflows }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dorny/paths-filter@v3
+        id: filter
+        with:
+          filters: |
+            deps:
+              - 'package.json'
+              - 'package-lock.json'
+            automation:
+              - 'features/**'
+              - 'src/**'
+              - 'playwright.config.ts'
+            tooling:
+              - 'eslint.config.mjs'
+              - 'tsconfig.json'
+              - '.prettierignore'
+            workflows:
+              - '.github/workflows/**'
+
+  quality:
+    needs: changes
+    if: |
+      needs.changes.outputs.deps == 'true' ||
+      needs.changes.outputs.automation == 'true' ||
+      needs.changes.outputs.tooling == 'true' ||
+      needs.changes.outputs.workflows == 'true'
+    timeout-minutes: 60
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: lts/*
+      - name: Install dependencies
+        run: npm run ci:install
+      - name: Lint
+        run: npm run ci:lint
+      - name: Install Playwright browsers
+        if: needs.changes.outputs.deps == 'true' || needs.changes.outputs.automation == 'true'
+        run: npm run ci:playwright-install
+      - name: Run Playwright tests
+        if: needs.changes.outputs.deps == 'true' || needs.changes.outputs.automation == 'true'
+        run: npm run ci:test
+      - uses: actions/upload-artifact@v4
+        if: ${{ !cancelled() && (needs.changes.outputs.deps == 'true' || needs.changes.outputs.automation == 'true') }}
+        with:
+          name: playwright-report-feature
+          path: playwright-report/
+          retention-days: 14
+
+  skip:
+    needs: changes
+    if: |
+      needs.changes.outputs.deps != 'true' &&
+      needs.changes.outputs.automation != 'true' &&
+      needs.changes.outputs.tooling != 'true' &&
+      needs.changes.outputs.workflows != 'true'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Sin cambios que requieran Node/Playwright
+        run: echo "No se ejecutan lint ni E2E (p. ej. solo documentación u otras rutas)."

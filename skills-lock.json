@@ -1,0 +1,59 @@
+{
+  "version": 1,
+  "skills": {
+    "manual-testing": {
+      "source": "petekp/claude-code-setup",
+      "sourceType": "github",
+      "skillPath": "skills/manual-testing/SKILL.md",
+      "computedHash": "6d4765433259c766c3f9acba4adabbec429672c9428ad3c552a46902ffae6ec3"
+    },
+    "playwright-automation": {
+      "source": "petrkindlmann/qa-skills",
+      "sourceType": "github",
+      "skillPath": "skills/playwright-automation/SKILL.md",
+      "computedHash": "0eb62e8c9d03ff836bc96e38ea767a8343ad0487ab8003939aebec1a91f92785"
+    },
+    "qa-execution": {
+      "source": "pedronauck/skills",
+      "sourceType": "github",
+      "skillPath": "skills/mine/qa-execution/SKILL.md",
+      "computedHash": "1627598351a3a2a8aee301de9bf9125040f98ed620e2d42a8cb6101b4e5aa4ef"
+    },
+    "qa-expert": {
+      "source": "daymade/claude-code-skills",
+      "sourceType": "github",
+      "skillPath": "qa-expert/SKILL.md",
+      "computedHash": "ec7deb014307c728bae0159f810ade14b06c4f3b77b8cd80f1c3d19643ce1b54"
+    },
+    "qa-manual-istqb": {
+      "source": "fugazi/test-automation-skills-agents",
+      "sourceType": "github",
+      "skillPath": "skills/qa-manual-istqb/SKILL.md",
+      "computedHash": "1a9a1b4ce8e3e6db37b774d514b07ec056a72f26d93f01a353e311723cfb8732"
+    },
+    "qa-test-planner": {
+      "source": "softaworks/agent-toolkit",
+      "sourceType": "github",
+      "skillPath": "skills/qa-test-planner/SKILL.md",
+      "computedHash": "8ee0d30acc14528eff0cf0b953f5adb6185a8ed65a72a489ae9297ddfee000b0"
+    },
+    "qa-testing-strategy": {
+      "source": "vasilyu1983/ai-agents-public",
+      "sourceType": "github",
+      "skillPath": "frameworks/shared-skills/skills/qa-testing-strategy/SKILL.md",
+      "computedHash": "69a402c113d0286ed562e7331bd2d3cac4536be3905faddff6f500c44858bd99"
+    },
+    "test-planning": {
+      "source": "petrkindlmann/qa-skills",
+      "sourceType": "github",
+      "skillPath": "skills/test-planning/SKILL.md",
+      "computedHash": "168bce57da4cb8e39e91429d9b92b522de86590ffdac39bfd7c521be3ad42e5f"
+    },
+    "testing-patterns": {
+      "source": "sickn33/antigravity-awesome-skills",
+      "sourceType": "github",
+      "skillPath": "skills/testing-patterns/SKILL.md",
+      "computedHash": "e2ef368904ecf13de5b0140d24ecc851b387087a4b2fd1670636dcb1277e17ea"
+    }
+  }
+}
