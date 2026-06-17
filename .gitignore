@@ -1,3 +1,6 @@
+# Envrionments variables
+.env
+.env.local
 
 # Playwright
 node_modules/

@@ -1,5 +1,8 @@
 import { defineConfig, devices } from "@playwright/test";
 import { defineBddConfig } from "playwright-bdd";
+import * as dotenv from "dotenv";
+
+dotenv.config({ path: ['.env.local', '.env'] });
 
 /**
  * BDD: genera specs en `src/runner` (espejo de `features/`, alineado con ADR-001).
@@ -23,7 +26,7 @@ export default defineConfig({
   reporter: "html",
   use: {
     trace: "on-first-retry",
-    baseURL: "https://opensource-demo.orangehrmlive.com",
+    baseURL: process.env.DEV ? process.env.DEV_URL : process.env.BASE_URL,
   },
   /**
    * Demo público: un solo proyecto reduce carga y falsos negativos por rate limiting.

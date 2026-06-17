@@ -21,7 +21,7 @@ Se ha decidido implementar la siguiente *arquitectura* y *stack tecnológico*:
 
 **Actions:** Clases o funciones encargadas de la *lógica de interacción* (verbos).
 
-**Questions:** Clases o funciones responsables de las *verificaciones*, *aserciones* y obtención de *estados*.
+**Questions:** Clases o funciones genéricas responsables de las *aserciones* y obtención de *estados*.
 
 ### Componentes Transversales (Carpeta common):
 
