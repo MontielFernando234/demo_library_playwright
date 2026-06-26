@@ -15,17 +15,21 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 9
       - uses: actions/setup-node@v4
         with:
           node-version: lts/*
+          cache: 'pnpm'
       - name: Install dependencies
-        run: npm run ci:install
+        run: pnpm install --frozen-lockfile
       - name: Install Playwright browsers
-        run: npm run ci:playwright-install
+        run: pnpm exec playwright install --with-deps
       - name: Lint
-        run: npm run ci:lint
+        run: pnpm run lint
       - name: Run Playwright tests
-        run: npm run ci:test
+        run: pnpm run test
       - uses: actions/upload-artifact@v4
         if: ${{ !cancelled() }}
         with:
