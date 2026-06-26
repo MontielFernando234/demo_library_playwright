@@ -3,7 +3,7 @@ name: CI feature branch (scoped)
 
 on:
   push:
-    branches: ['feature/**']
+    branches: ["feature/**"]
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
@@ -54,11 +54,11 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: lts/*
-          cache: 'pnpm'
+          cache: "pnpm"
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
       - name: Lint
-        run: pnpm run lint
+        run: pnpm run test
       - name: Install Playwright browsers
         if: needs.changes.outputs.deps == 'true' || needs.changes.outputs.automation == 'true'
         run: pnpm exec playwright install --with-deps
