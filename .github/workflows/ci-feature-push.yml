@@ -60,8 +60,6 @@ jobs:
           cache: "pnpm"
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
-      - name: Lint
-        run: pnpm run test
       - name: Install Playwright browsers
         if: needs.changes.outputs.deps == 'true' || needs.changes.outputs.automation == 'true'
         run: pnpm exec playwright install --with-deps

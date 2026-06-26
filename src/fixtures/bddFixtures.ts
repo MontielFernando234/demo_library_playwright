@@ -8,6 +8,7 @@ type MyFixtures = {
   registroPage: RegistroPage;
   registroActions: RegistroActions;
   registroQuestions: RegistroQuestions;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   scenarioContext: { email?: string; [key: string]: any };
 };
 

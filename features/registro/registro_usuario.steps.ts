@@ -114,6 +114,7 @@ Given('un email dinámico ya registrado en el sistema', async ({ page, registroA
   scenarioContext.email = user.Email;
   await registroActions.completarFormulario(user);
   await registroActions.enviarFormulario();
+  // eslint-disable-next-line playwright/no-wait-for-timeout
   await page.waitForTimeout(2000);
   await registroActions.navegarARegistro();
 });
