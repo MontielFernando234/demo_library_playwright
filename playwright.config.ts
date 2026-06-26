@@ -26,6 +26,7 @@ export default defineConfig({
   reporter: "html",
   use: {
     trace: "on-first-retry",
+    screenshot:"only-on-failure",
     baseURL: process.env.DEV ? process.env.DEV_URL : process.env.BASE_URL,
   },
   /**

@@ -30,13 +30,14 @@
   "homepage": "https://github.com/MontielFernando234/demo_library_playwright#readme",
   "devDependencies": {
     "@eslint/js": "^10.0.1",
+    "@faker-js/faker": "^10.5.0",
     "@playwright/test": "^1.59.1",
     "@types/node": "^25.6.0",
     "eslint": "^10.3.0",
     "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-playwright": "^2.10.2",
     "globals": "^17.6.0",
-    "playwright-bdd": "^8.5.1",
+    "playwright-bdd": "^9.2.0",
     "prettier": "^3.8.3",
     "typescript": "^6.0.3",
     "typescript-eslint": "^8.59.3"

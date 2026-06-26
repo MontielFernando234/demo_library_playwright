@@ -12,3 +12,19 @@ node_modules/
 
 # Generado por playwright-bdd (defineBddConfig outputDir)
 /src/runner/
+
+# MCP and Local caching directories
+.playwright-mcp/
+.chrome-devtools-mcp/
+.vscode/
+.idea/
+
+# Local context and agent memory data (only directory structure kept via .gitkeep)
+/context/*
+!/context/.gitkeep
+/docs/qa-memory/*
+!/docs/qa-memory/.gitkeep
+
+# Locks
+skills-lock.json
+
